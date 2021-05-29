@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 
 public class NuovoDAOImpl extends AbstractMySQLDAO implements NuovoDAO {
 
+
+
     public void setConnection(Connection connection) {
         this.connection = connection;
 
