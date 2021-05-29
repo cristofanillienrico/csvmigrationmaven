@@ -15,7 +15,6 @@ import java.util.List;
 public class Test {
 
 
-
     public static void main(String[] args) throws Exception {
 
         NuovoService nuovoService = MyServiceFactory.getNuovoService();
@@ -30,13 +29,20 @@ public class Test {
 //        beans.forEach(System.out::println);
 
 
+        //inizializzo un contatore per vedere il progresso dell'operazione
+        int contatore = 0;
+
+
         for (CsvModel csvModelItem : beans) {
+
+            contatore++;
 
 
             if (csvModelItem.getNumeroSinistri() > 14) {
                 NotProcessed notProcessed = new NotProcessed();
                 notProcessed.setCodiceFiscale(csvModelItem.getCodiceFiscale());
                 nuovoService.inserisciNotProcessed(notProcessed);
+                System.out.println(contatore + "-L'assicurato " + csvModelItem.getNome() +" "+ csvModelItem.getCognome() + " è sospetto");
 
             } else {
 
@@ -47,6 +53,7 @@ public class Test {
                 assicurato.setData(csvModelItem.getData());
                 assicurato.setNumeroSinistri(csvModelItem.getNumeroSinistri());
                 nuovoService.inserisciAssicurato(assicurato);
+                System.out.println(contatore + "-L'assicurato " + csvModelItem.getNome() +" "+ csvModelItem.getCognome() + " è stato inserito nel db");
 
 
             }
