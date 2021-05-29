@@ -11,7 +11,6 @@ import java.sql.PreparedStatement;
 public class NuovoDAOImpl extends AbstractMySQLDAO implements NuovoDAO {
 
 
-
     public void setConnection(Connection connection) {
         this.connection = connection;
 
@@ -54,10 +53,9 @@ public class NuovoDAOImpl extends AbstractMySQLDAO implements NuovoDAO {
 
         int result = 0;
         try (PreparedStatement ps = connection.prepareStatement(
-                "INSERT INTO not_processed (codice_fiscale,old_id) VALUES (?, ?);")) {
+                "INSERT INTO not_processed (codice_fiscale) VALUES (?);")) {
 
             ps.setString(1, input.getCodiceFiscale());
-            ps.setLong(2, input.getOldId());
             result = ps.executeUpdate();
 
         } catch (Exception e) {

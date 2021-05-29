@@ -4,14 +4,12 @@ public class NotProcessed {
 
     private Long id;
     private String codiceFiscale;
-    private Long oldId;
 
     public NotProcessed() {
     }
 
     public NotProcessed(String codiceFiscale, Long oldId) {
         this.codiceFiscale = codiceFiscale;
-        this.oldId = oldId;
     }
 
     public Long getId() {
@@ -30,20 +28,12 @@ public class NotProcessed {
         this.codiceFiscale = codiceFiscale;
     }
 
-    public Long getOldId() {
-        return oldId;
-    }
-
-    public void setOldId(Long oldId) {
-        this.oldId = oldId;
-    }
 
     @Override
     public String toString() {
         return "NotProcessed{" +
                 "id=" + id +
                 ", codiceFiscale='" + codiceFiscale + '\'' +
-                ", oldId=" + oldId +
                 '}';
     }
 }
