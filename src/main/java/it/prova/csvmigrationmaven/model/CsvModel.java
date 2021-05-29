@@ -1,6 +1,7 @@
 package it.prova.csvmigrationmaven.model;
 
 import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvDate;
 
 import java.util.Date;
 
@@ -15,6 +16,7 @@ public class CsvModel {
     @CsvBindByName(column = "codice_fiscale")
     private String codiceFiscale;
 
+    @CsvDate(value = "yyyy-MM-dd")
     @CsvBindByName(column = "data")
     private Date data;
 
